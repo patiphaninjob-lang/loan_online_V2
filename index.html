@@ -32,6 +32,210 @@
         .progress-bar { height:6px; border-radius:3px; background:#e5e7eb; overflow:hidden; }
         .progress-fill { height:100%; border-radius:3px; transition:width .5s ease; }
         select option { font-family: 'Prompt', sans-serif; }
+        * { box-sizing: border-box; }
+        input, select, textarea, button { font: inherit; }
+        .min-safe-0 { min-width: 0; }
+
+        @media (max-width: 768px) {
+            body { min-height: 100dvh; overflow-x: hidden; }
+            body > .flex.h-screen.overflow-hidden {
+                min-height: 100dvh;
+                height: auto;
+                overflow: visible;
+                flex-direction: column;
+                padding-bottom: 86px;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 {
+                position: fixed;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: auto;
+                z-index: 60;
+                flex-direction: row;
+                align-items: stretch;
+                border-right: 0;
+                border-top: 1px solid #e5e7eb;
+                box-shadow: 0 -10px 30px rgba(15,23,42,.12);
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 > .p-6 {
+                display: none;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 > .p-4.space-y-1 {
+                display: grid;
+                grid-template-columns: repeat(3, minmax(0, 1fr));
+                gap: 4px;
+                flex: 1;
+                padding: 8px;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 .nav-btn {
+                min-height: 58px;
+                justify-content: center;
+                text-align: center;
+                flex-direction: column;
+                gap: 4px;
+                padding: 8px 4px;
+                border-radius: 12px;
+                font-size: 11px;
+                line-height: 1.2;
+            }
+            body > .flex.h-screen.overflow-hidden > .w-72 .nav-btn i {
+                width: auto;
+                font-size: 18px;
+            }
+            #sidebar-summary { display: none; }
+            body > .flex.h-screen.overflow-hidden > .w-72 > .border-t {
+                display: none;
+            }
+            body > .flex.h-screen.overflow-hidden > .flex-1 {
+                width: 100%;
+                min-width: 0;
+                overflow: visible;
+            }
+            header {
+                padding: 14px 16px !important;
+                top: 0;
+            }
+            #page-title { font-size: 18px; }
+            #section-dashboard,
+            #section-add,
+            #section-list {
+                padding: 16px !important;
+            }
+            #section-dashboard .grid,
+            #section-add .grid {
+                gap: 12px;
+            }
+            #section-add .max-w-2xl {
+                padding: 16px !important;
+                border-radius: 16px;
+            }
+            #section-add .grid-cols-2,
+            #modal-content .grid-cols-2,
+            #edit-form-content .grid-cols-2 {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            #section-add .col-span-2,
+            #modal-content .col-span-2,
+            #edit-form-content .col-span-2 {
+                grid-column: span 1 / span 1 !important;
+            }
+            #modal-content label.flex,
+            #dashboard-detail-content .flex.justify-between {
+                align-items: flex-start;
+                gap: 10px;
+            }
+            #modal-content label.flex .flex-1,
+            #dashboard-detail-content .flex-1 {
+                min-width: 0;
+            }
+            #modal-content .bg-gray-800.flex {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 6px;
+            }
+            #section-list > .flex {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr);
+                gap: 10px;
+            }
+            #section-list input,
+            #section-list select {
+                width: 100%;
+                min-width: 0;
+            }
+            .loan-card .p-6 { padding: 16px !important; }
+            .loan-card .text-2xl { font-size: 22px; }
+            .loan-card h4 { font-size: 17px; overflow-wrap: anywhere; }
+            .loan-card .grid-cols-2 {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            }
+            .loan-card .md\:grid-cols-4 {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+            }
+            .loan-card .flex.justify-between {
+                flex-wrap: wrap;
+            }
+            .loan-card .flex.items-center.gap-2.shrink-0 {
+                width: 100%;
+                justify-content: space-between;
+                margin-top: 8px;
+            }
+            .loan-card .text-right {
+                text-align: left;
+            }
+            .loan-card .mt-4.flex.gap-2 {
+                display: grid;
+                grid-template-columns: minmax(0, 1fr) 44px 44px;
+                gap: 8px;
+            }
+            .dropdown-menu {
+                right: 0;
+                min-width: min(220px, calc(100vw - 32px));
+            }
+            .fixed.inset-0 {
+                align-items: flex-end;
+                padding: 0;
+            }
+            .modal-box {
+                max-width: none !important;
+                width: 100% !important;
+                max-height: 92dvh !important;
+                border-radius: 20px 20px 0 0 !important;
+            }
+            .modal-box > .p-6,
+            .modal-box > div > .p-6,
+            #modal-content,
+            #edit-form-content,
+            #default-modal-content,
+            #history-modal-content,
+            #dashboard-detail-content,
+            #add-loan-amount-form-content {
+                padding: 16px !important;
+            }
+            .modal-box > .flex.justify-between {
+                padding: 16px !important;
+                gap: 12px;
+            }
+            .modal-box h3 {
+                font-size: 16px;
+                line-height: 1.35;
+                overflow-wrap: anywhere;
+            }
+            #history-summary-bar {
+                grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .loan-card .md\:grid-cols-4,
+            .loan-card .grid-cols-2 {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            .loan-card .mt-4.flex.gap-2 {
+                grid-template-columns: minmax(0, 1fr) 44px;
+            }
+            .loan-card .mt-4.flex.gap-2 button:last-child {
+                grid-column: span 2;
+            }
+            #modal-content .grid-cols-3 {
+                grid-template-columns: minmax(0, 1fr) !important;
+            }
+            #modal-content label.flex {
+                flex-wrap: wrap;
+            }
+            #modal-content label.flex > span:last-child {
+                width: 100%;
+                padding-left: 28px;
+            }
+            .stat-chip,
+            .loan-card .rounded-xl.p-3 {
+                text-align: left;
+            }
+        }
     </style>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
@@ -503,9 +707,47 @@ function toIsoDate(value) {
 }
 function getDateInputValue(id) { return toIsoDate(document.getElementById(id)?.value); }
 function setDateInputValue(id, value) { document.getElementById(id).value = toDisplayDate(value); }
+function isDateTextInput(el) {
+    return el?.matches?.('input[type="text"][placeholder="dd/mm/yyyy"]');
+}
+function formatDateInputValue(value) {
+    const digits = String(value || '').replace(/\D/g, '').slice(0, 8);
+    if (digits.length <= 2) return digits;
+    if (digits.length <= 4) return `${digits.slice(0, 2)}/${digits.slice(2)}`;
+    return `${digits.slice(0, 2)}/${digits.slice(2, 4)}/${digits.slice(4)}`;
+}
+function dateCaretFromDigitCount(value, digitCount) {
+    if (digitCount <= 0) return 0;
+    let seen = 0;
+    for (let i = 0; i < value.length; i++) {
+        if (/\d/.test(value[i])) seen++;
+        if (seen >= digitCount) return i + 1;
+    }
+    return value.length;
+}
+function normalizeDateTextInput(el) {
+    if (!isDateTextInput(el)) return;
+    el.maxLength = 10;
+    const before = el.value;
+    const caret = el.selectionStart ?? before.length;
+    const digitCountBeforeCaret = before.slice(0, caret).replace(/\D/g, '').length;
+    const formatted = formatDateInputValue(before);
+    if (before !== formatted) {
+        el.value = formatted;
+        const nextCaret = dateCaretFromDigitCount(formatted, digitCountBeforeCaret);
+        el.setSelectionRange?.(nextCaret, nextCaret);
+    }
+}
 function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
 function closeAllDropdowns() { document.querySelectorAll('.dropdown-menu').forEach(m=>m.classList.remove('open')); }
 document.addEventListener('click', e => { if (!e.target.closest('.dropdown-wrapper')) closeAllDropdowns(); });
+document.addEventListener('input', e => {
+    normalizeDateTextInput(e.target);
+    if (e.target?.id === 'pay-date') updatePayNoteFromDate();
+});
+document.addEventListener('focusin', e => {
+    if (isDateTextInput(e.target)) e.target.maxLength = 10;
+});
 function escapeHtml(v) {
     return String(v ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 }
@@ -520,6 +762,20 @@ function recalcRemainingPrincipal(loan) {
 }
 function monthLabelFromDate(date) {
     return date ? new Date(date).toLocaleDateString('th-TH', { month: 'long', year: 'numeric' }) : '';
+}
+function paymentMonthNote(date) {
+    const label = monthLabelFromDate(date);
+    return label ? `งวด ${label}` : '';
+}
+function updatePayNoteFromDate(force = false) {
+    const payDate = getDateInputValue('pay-date');
+    const noteEl = document.getElementById('pay-note');
+    if (!noteEl) return;
+    const autoNote = paymentMonthNote(payDate);
+    if (force || !noteEl.value.trim() || noteEl.dataset.auto === '1') {
+        noteEl.value = autoNote;
+        noteEl.dataset.auto = autoNote ? '1' : '';
+    }
 }
 
 // ─────────────────────────────────────────
@@ -729,7 +985,9 @@ function openPaymentModal(id) {
 
     const s = getLoanStats(loan);
     const monthlyAmt = s.monthlyInterest;
-    const overdueSlots = (loan.overdueSlots || []).filter(sl => !sl.paid);
+    const overdueSlots = (loan.overdueSlots || [])
+        .filter(sl => !sl.paid)
+        .sort((a, b) => new Date(b.dueDate) - new Date(a.dueDate));
 
     document.getElementById('modal-title').textContent = `ชำระเงิน — ${loan.emoji||''} ${loan.borrower}`;
 
@@ -790,7 +1048,11 @@ function openPaymentModal(id) {
                     <span class="text-sm font-semibold text-gray-800">ชำระงวดปัจจุบัน</span>
                     <p class="text-xs text-gray-500">กำหนด ${formatDate(loan.nextInterestDue)}</p>
                 </div>
-                <span class="font-bold text-green-700">${formatMoney(monthlyAmt)} ฿</span>
+                <input type="number" id="pay-current-amount" value="${monthlyAmt}" min="0" step="1"
+                    class="w-28 shrink-0 border border-green-200 bg-white rounded-lg px-2 py-1.5 text-right text-sm font-bold text-green-700 focus:outline-none focus:ring-2 focus:ring-green-300"
+                    onclick="event.stopPropagation()"
+                    onfocus="document.getElementById('pay-current').checked=true; recalcPayTotal()"
+                    oninput="document.getElementById('pay-current').checked=true; recalcPayTotal()">
             </label>
         </div>
 
@@ -815,11 +1077,11 @@ function openPaymentModal(id) {
         <div class="grid grid-cols-2 gap-3">
             <div>
                 <label class="block text-xs font-medium mb-1 text-gray-600">วันที่ชำระ</label>
-                <input type="text" id="pay-date" inputmode="numeric" placeholder="dd/mm/yyyy" value="${toDisplayDate(todayStr())}" class="w-full border rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <input type="text" id="pay-date" inputmode="numeric" placeholder="dd/mm/yyyy" value="${toDisplayDate(todayStr())}" oninput="updatePayNoteFromDate()" class="w-full border rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
             </div>
             <div>
                 <label class="block text-xs font-medium mb-1 text-gray-600">หมายเหตุ</label>
-                <input type="text" id="pay-note" placeholder="ไม่บังคับ" class="w-full border rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
+                <input type="text" id="pay-note" placeholder="ไม่บังคับ" oninput="this.dataset.auto=''" class="w-full border rounded-xl px-3 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300">
             </div>
         </div>
 
@@ -835,6 +1097,7 @@ function openPaymentModal(id) {
     </div>`;
 
     document.getElementById('payment-modal').classList.remove('hidden');
+    updatePayNoteFromDate(true);
 }
 
 function togglePrincipalInput() {
@@ -857,8 +1120,7 @@ function recalcPayTotal() {
     // งวดปัจจุบัน
     const curCheck = document.getElementById('pay-current');
     if (curCheck?.checked) {
-        const loan = loans.find(l => l.id === currentPaymentId);
-        total += fixedMonthlyInterest(loan);
+        total += parseFloat(document.getElementById('pay-current-amount')?.value) || 0;
     }
 
     // ต้น
@@ -876,7 +1138,7 @@ function savePayment(id) {
 
     const payDate = getDateInputValue('pay-date');
     const payNote = document.getElementById('pay-note').value.trim();
-    const monthly = fixedMonthlyInterest(loan);
+    const noteText = payNote || paymentMonthNote(payDate);
 
     if (!payDate) return alert("กรุณาเลือกวันที่ชำระ");
 
@@ -904,13 +1166,15 @@ function savePayment(id) {
     // 2. ชำระงวดปัจจุบัน
     const payCurrentCheck = document.getElementById('pay-current');
     if (payCurrentCheck?.checked) {
+        const currentAmount = parseFloat(document.getElementById('pay-current-amount')?.value) || 0;
+        if (currentAmount <= 0) return alert("กรุณาใส่ยอดชำระงวดปัจจุบัน");
         const pid = 'pay_cur_' + Date.now();
         loan.payments.unshift({
             id: pid,
             date: payDate,
             type: 'interest',
-            amount: monthly,
-            note: `ดอกงวด ${formatDate(loan.nextInterestDue)}${payNote ? ' — ' + payNote : ''}`,
+            amount: currentAmount,
+            note: noteText || `ดอกงวด ${formatDate(loan.nextInterestDue)}`,
             overdueRef: null
         });
         // เลื่อน nextInterestDue ไปเดือนถัดไป
@@ -1536,7 +1800,7 @@ function renderLoanList(filteredLoans = loans) {
                             <div>
                                 <p class="text-red-700 font-semibold text-sm">🔴 ดอกค้างสะสม ${formatMoney(overdueAmount)} บาท (${overdueCount} งวด)</p>
                                 <p class="text-xs text-red-500 mt-0.5">
-                                    ${(loan.overdueSlots||[]).filter(s=>!s.paid).slice(0,3).map(s=>s.monthLabel).join(' · ')}
+                                    ${(loan.overdueSlots||[]).filter(s=>!s.paid).sort((a,b)=>new Date(b.dueDate)-new Date(a.dueDate)).slice(0,3).map(s=>s.monthLabel).join(' · ')}
                                 </p>
                             </div>
                         </div>
@@ -1714,7 +1978,10 @@ function openDashboardDetail(type) {
     } else if (type === 'overdue') {
         title = 'ที่มาของยอดดอกค้างชำระรวม';
         loans.forEach(loan => {
-            (loan.overdueSlots || []).filter(slot => !slot.paid).forEach(slot => {
+            (loan.overdueSlots || [])
+                .filter(slot => !slot.paid)
+                .sort((a,b)=>new Date(b.dueDate)-new Date(a.dueDate))
+                .forEach(slot => {
                 total += slot.amount;
                 rows.push(`
                 <div class="border border-red-100 bg-red-50 rounded-xl p-4">
